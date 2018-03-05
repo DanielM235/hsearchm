@@ -34,7 +34,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/hsearchm?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: 1234
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -51,6 +51,9 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
+            hibernate.search.default.directory_provider: filesystem
+            hibernate.search.default.indexBase: /var/lucene/indexes
+#            hibernate.search.default.indexBase: target/index
     mail:
         host: localhost
         port: 25

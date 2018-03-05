@@ -1,0 +1,33 @@
+<div dropdown [isOpen]="isOpen" [autoClose]="true" container="body">
+
+  <!-- Search field. -->
+  <span class="input-icon">
+    <input type="text" class="form-control" [formControl]="searchCtrl" [ngStyle]="{border: 0}" (focus)="onFocus()"/>
+  </span>
+
+  <!-- Dropdown. -->
+  <div *dropdownMenu class="dropdown-menu search-doc">
+
+    <!-- Query is valid. -->
+    <ng-container *ngIf="isValid">
+
+      <!-- Results. -->
+      <ul *ngIf="nodesDesc.length" class="list-group">
+        <li *ngFor="let doc of nodesDesc" class="list-group-item" [id]="doc.id" [attr.title]="doc.title">
+
+          <!-- Template for each element of the list. -->
+          <span *ngIf="!isBrick(doc)"  class="edc-blue fa-fw" [ngClass]="getIcon(doc)"></span>
+          <img *ngIf="isBrick(doc)" class="fa-fw" [src]="doc.iconUrl"/>
+          <span [innerHTML]="doc.titles['en'] | highlight:searchCtrl.value"></span>
+        </li>
+      </ul>
+
+      <!-- No result. -->
+      <ng-container *ngIf="!isLoading && !nodesDesc.length">
+        <span class="no-result">No results</span>
+        <i class="fa fa-frown-o" aria-hidden="true"></i>
+      </ng-container>
+
+    </ng-container>
+  </div>
+</div>

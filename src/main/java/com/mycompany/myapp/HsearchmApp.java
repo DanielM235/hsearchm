@@ -3,6 +3,7 @@ package com.mycompany.myapp;
 import com.mycompany.myapp.config.ApplicationProperties;
 import com.mycompany.myapp.config.DefaultProfileUtil;
 
+import com.mycompany.myapp.repository.NodeSearchLuceneRepository;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.slf4j.Logger;
@@ -30,8 +31,11 @@ public class HsearchmApp {
 
     private final Environment env;
 
-    public HsearchmApp(Environment env) {
+    private final NodeSearchLuceneRepository nodeSearchLuceneRepository;
+
+    public HsearchmApp(Environment env, NodeSearchLuceneRepository nodeSearchLuceneRepository) {
         this.env = env;
+        this.nodeSearchLuceneRepository = nodeSearchLuceneRepository;
     }
 
     /**
@@ -52,6 +56,7 @@ public class HsearchmApp {
             log.error("You have misconfigured your application! It should not " +
                 "run with both the 'dev' and 'cloud' profiles at the same time.");
         }
+        this.nodeSearchLuceneRepository.index();
     }
 
     /**

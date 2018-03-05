@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "node",
+            "otherEntityName": "node",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180304184136",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "node_content",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

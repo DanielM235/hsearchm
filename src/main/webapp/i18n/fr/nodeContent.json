@@ -1,0 +1,24 @@
+
+{
+    "hsearchmApp": {
+        "nodeContent" : {
+            "home": {
+                "title": "NodeContents",
+                "createLabel": "Créer un nouveau Node Content",
+                "createOrEditLabel": "Créer ou éditer un Node Content"
+            },
+            "created": "Un nouveau Node Content a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Node Content avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Node Content avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Node Content {{ id }} ?"
+            },
+            "detail": {
+                "title": "Node Content"
+            },
+            "title": "Title",
+            "content": "Content",
+            "node": "Node"
+        }
+    }
+}

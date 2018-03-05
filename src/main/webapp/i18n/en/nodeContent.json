@@ -1,0 +1,24 @@
+
+{
+    "hsearchmApp": {
+        "nodeContent" : {
+            "home": {
+                "title": "Node Contents",
+                "createLabel": "Create a new Node Content",
+                "createOrEditLabel": "Create or edit a Node Content"
+            },
+            "created": "A new Node Content is created with identifier {{ param }}",
+            "updated": "A Node Content is updated with identifier {{ param }}",
+            "deleted": "A Node Content is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Node Content {{ id }}?"
+            },
+            "detail": {
+                "title": "Node Content"
+            },
+            "title": "Title",
+            "content": "Content",
+            "node": "Node"
+        }
+    }
+}

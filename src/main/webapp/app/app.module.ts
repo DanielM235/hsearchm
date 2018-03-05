@@ -27,6 +27,7 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
+import { SearchDocModule } from "./search-doc/search-doc.module";
 
 @NgModule({
     imports: [
@@ -38,6 +39,7 @@ import {
         HsearchmAdminModule,
         HsearchmAccountModule,
         HsearchmEntityModule,
+        SearchDocModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

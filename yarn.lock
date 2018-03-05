@@ -5471,6 +5471,10 @@ ng-jhipster@0.4.0:
     "@ngx-translate/core" "^8.0.0"
     "@ngx-translate/http-loader" "^2.0.0"
 
+ngx-bootstrap@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-2.0.2.tgz#6862b2ee4764bb6cfd34c66528873d0d050c2faa"
+
 ngx-cookie@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ngx-cookie/-/ngx-cookie-2.0.1.tgz#031d8938bf9026954356b3b3ae668e2e1964e584"

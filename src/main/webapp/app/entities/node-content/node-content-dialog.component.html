@@ -1,0 +1,48 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNodeContentLabel" jhiTranslate="hsearchmApp.nodeContent.home.createOrEditLabel">Create or edit a Node Content</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!nodeContent.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="nodeContent.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hsearchmApp.nodeContent.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="nodeContent.title" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hsearchmApp.nodeContent.content" for="field_content">Content</label>
+            <input type="text" class="form-control" name="content" id="field_content"
+                [(ngModel)]="nodeContent.content" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hsearchmApp.nodeContent.node" for="field_node">Node</label>
+            <select class="form-control" id="field_node" name="node" [(ngModel)]="nodeContent.node"  required>
+                <option *ngIf="!editForm.value.node" [ngValue]="null" selected></option>
+                <option [ngValue]="nodeOption.id === nodeContent.node?.id ? nodeContent.node : nodeOption" *ngFor="let nodeOption of nodes; trackBy: trackNodeById">{{nodeOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.node?.dirty && editForm.controls.node?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.node?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
