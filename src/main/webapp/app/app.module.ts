@@ -3,7 +3,7 @@ import './vendor.ts';
 import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Ng2Webstorage, LocalStorageService, SessionStorageService  } from 'ngx-webstorage';
+import { Ng2Webstorage, LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
@@ -11,7 +11,7 @@ import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interc
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
 import { HsearchmSharedModule, UserRouteAccessService } from './shared';
-import { HsearchmAppRoutingModule} from './app-routing.module';
+import { HsearchmAppRoutingModule } from './app-routing.module';
 import { HsearchmHomeModule } from './home/home.module';
 import { HsearchmAdminModule } from './admin/admin.module';
 import { HsearchmAccountModule } from './account/account.module';
@@ -27,19 +27,25 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
-import { SearchDocModule } from "./search-doc/search-doc.module";
+import { BsDropdownModule } from 'ngx-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { SearchDocComponent } from './search-doc/search-doc.component';
+import { SearchDocService } from './search-doc/search-doc.service';
 
 @NgModule({
     imports: [
         BrowserModule,
         HsearchmAppRoutingModule,
-        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
+        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         HsearchmSharedModule,
         HsearchmHomeModule,
         HsearchmAdminModule,
         HsearchmAccountModule,
         HsearchmEntityModule,
-        SearchDocModule
+        CommonModule,
+        ReactiveFormsModule,
+        BsDropdownModule.forRoot()
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -48,12 +54,15 @@ import { SearchDocModule } from "./search-doc/search-doc.module";
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
-        FooterComponent
+        FooterComponent,
+        SearchDocComponent
     ],
     providers: [
         ProfileService,
         PaginationConfig,
         UserRouteAccessService,
+
+        SearchDocService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
@@ -90,4 +99,5 @@ import { SearchDocModule } from "./search-doc/search-doc.module";
     ],
     bootstrap: [ JhiMainComponent ]
 })
-export class HsearchmAppModule {}
+export class HsearchmAppModule {
+}

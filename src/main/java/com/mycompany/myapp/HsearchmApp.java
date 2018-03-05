@@ -56,7 +56,7 @@ public class HsearchmApp {
             log.error("You have misconfigured your application! It should not " +
                 "run with both the 'dev' and 'cloud' profiles at the same time.");
         }
-        this.nodeSearchLuceneRepository.index();
+//        this.nodeSearchLuceneRepository.index();
     }
 
     /**

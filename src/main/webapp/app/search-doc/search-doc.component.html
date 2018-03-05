@@ -18,7 +18,7 @@
           <!-- Template for each element of the list. -->
           <span *ngIf="!isBrick(doc)"  class="edc-blue fa-fw" [ngClass]="getIcon(doc)"></span>
           <img *ngIf="isBrick(doc)" class="fa-fw" [src]="doc.iconUrl"/>
-          <span [innerHTML]="doc.titles['en'] | highlight:searchCtrl.value"></span>
+          <span [innerHTML]="doc.title"></span>
         </li>
       </ul>
 

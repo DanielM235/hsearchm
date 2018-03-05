@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { setTimeout } from 'timers';
-import { SearchDocService } from "./search-doc.service";
+import { SearchDocService } from './search-doc.service';
 
 @Component({
-  selector   : 'edc-search-doc',
+  selector   : 'jhi-search-doc',
   templateUrl: './search-doc.component.html',
-  styleUrls  : ['./search-doc.component.less']
+    styleUrls: ['./search-doc.component.scss']
 })
 export class SearchDocComponent implements OnInit {
 
@@ -25,6 +25,7 @@ export class SearchDocComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      console.log('init componetn');
     this.initSearchField();
   }
 
@@ -33,7 +34,7 @@ export class SearchDocComponent implements OnInit {
    */
   onFocus() {
     if (this.searchCtrl.value.length) {
-      // Have to use setTimeout otherwise "DropdownOutsideClickDirective" close the dropdown.
+      // Have to use setTimeout otherwise 'DropdownOutsideClickDirective' close the dropdown.
       setTimeout(() => this.isOpen = true, 200);
     }
   }
@@ -50,7 +51,7 @@ export class SearchDocComponent implements OnInit {
    */
   private initSearchField(): void {
     this.searchCtrl = new FormControl('');
-    this.searchCtrl.valueChanges.debounceTime(200).subscribe(value => {
+    this.searchCtrl.valueChanges.debounceTime(200).subscribe((value) => {
       this.isOpen = value;
       if (value.length >= 3) {
         this.isValid = true;
@@ -69,7 +70,7 @@ export class SearchDocComponent implements OnInit {
   private populateDocumentations(search: string): void {
     this.isLoading = true;
     if (this.isValid) {
-      this.searchDocService.getDocumentations(search).subscribe(nodeDescriptions => {
+      this.searchDocService.getDocumentations(search).subscribe((nodeDescriptions) => {
         this.isLoading = false;
         this.nodesDesc = nodeDescriptions;
       });

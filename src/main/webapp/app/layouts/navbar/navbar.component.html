@@ -8,6 +8,8 @@
             <span jhiTranslate="global.title" class="navbar-title">Hsearchm</span> <span class="navbar-version">{{version}}</span>
         </a>
     </div>
+
+    <jhi-search-doc></jhi-search-doc>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">

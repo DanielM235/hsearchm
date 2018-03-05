@@ -42,10 +42,11 @@ spring:
                 physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
                 implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         properties.hibernate.search:
-                    default:
-                        directory_provider: filesystem
-                        indexBase: search
-                        indexmanager: near-real-time
+            lucene_version: LUCENE_55
+            default:
+                directory_provider: filesystem
+                indexBase: search
+                indexmanager: directory-based
     messages:
         basename: i18n/messages
     mvc:

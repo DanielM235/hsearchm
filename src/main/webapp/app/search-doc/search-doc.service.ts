@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class SearchDocService {
      * @param criteria the search criteria.
      * @return observable of list of String.
      */
-    getDocumentations(criteria: string): Observable<Node[]> {
+    getDocumentations(criteria: string): Observable<any> {
         return this.http.post(`${this.url}/search`, criteria);
     }
 }
